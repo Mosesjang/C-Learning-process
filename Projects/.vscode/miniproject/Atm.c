@@ -2,6 +2,7 @@
 
       int balanceFunction();
       int depositFunction();
+      int withdrawalFunction();
 
 
       int main(){
@@ -48,7 +49,7 @@
 
                   case 3:
                   //check Balance fucntion
-                  printf("3");
+                  withdrawalFunction(&balance);
                   break;
 
             }
@@ -75,4 +76,20 @@
 
 
             return 0;
+      }
+
+      int withdrawalFunction(int *balance){
+            int withdrawalAmount = 0;
+
+            printf("Enter Withdrawal Amount: ");
+            scanf("%d", &withdrawalAmount);
+
+            
+            if(*balance < withdrawalAmount){
+                  printf("돈 부족합니다!! 가난한 새끼");
+            }
+            else{
+                  *balance -= withdrawalAmount;
+                  printf("완료");
+            }
       }
