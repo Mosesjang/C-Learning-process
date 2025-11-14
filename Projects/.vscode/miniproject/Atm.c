@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-      int balanceFunction(int balance);
-      int depositFunction(int balance);
+      int balanceFunction();
+      int depositFunction();
 
 
       int main(){
@@ -10,6 +10,7 @@
             int userPasscodeInput;
             int userActivityChoiceInput;
             int balance = 0;
+            
 
             printf("Enter your 4-digit PIN: ");
             scanf("%d", &userPasscodeInput);
@@ -17,11 +18,14 @@
                   printf("Access Granted!");
             }
             else{
-                  printf("Wrong password, try again: ");
+                  while(userPasscodeInput != passcode){
+                        printf("Wrong password, try again: ");
+                        scanf("%d", &userPasscodeInput);
+                  }    
             }
 
             do{    
-            printf("\n===== ATM MENU =====\n"
+            printf("\n\n===== ATM MENU =====\n"
                   "1. Check Balance\n"
                   "2. Deposit Money\n"
                   "3. Withdraw Money\n"
@@ -34,12 +38,12 @@
                   
                   case 1:
                   //check Balance fucntion
-                  balanceFunction(balance);
+                  balanceFunction(&balance);
                   break;
 
                   case 2:
                   //check Balance fucntion
-                  depositeFunction(balance);
+                  depositFunction(&balance);
                   break;
 
                   case 3:
@@ -56,15 +60,19 @@
             return 0;
       }
 
-      int balanceFunction(int balance){
-            printf("%d", balance);
+      int balanceFunction(int *balance){
+            printf("\nYour balance is: $%d", *balance);
             return 0;
       }
       
-      int depositeFunction(int balance){
-            int depositeAmount = 0;
+      int depositFunction(int *balance){
+            int depositAmount = 0;
+            
             printf("Enter deposite amount: ");
-            scanf("%d", depositeAmount);
+            scanf("%d", &depositAmount);
 
-            return balance + depositeAmount;
+            *balance += depositAmount;
+
+
+            return 0;
       }
