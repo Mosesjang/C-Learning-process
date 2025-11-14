@@ -93,3 +93,8 @@
                   printf("완료");
             }
       }
+
+      // lessons learned:
+      // when a function end every variable created inside it dies/get destroyed and memory is retrived.
+      // int *variable is a pointer variable that stores address, &variable gives the address, *variable carries what is inside the address
+      // 
