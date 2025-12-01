@@ -1,21 +1,19 @@
 #include <stdio.h>
-      int sayHello(){
-            printf("Hello Nigga");
-      }
-      int sayBye(){
-            printf("\nBye");
+      float mult(float a, float b){return a * b;}
+
+      float callbackfunct(float(*functPtr)(float, float), float x, float y){
+            return functPtr(x,y);
+
       }
 
-      int functCaller(int (*funcPtr)()){
-            return funcPtr();
+      int main(){
+
+            float result;
+
+            result = callbackfunct(mult, 5.0, 4.0);
             
-      }
+            printf("%.2f", result);
 
-      int main (){
-
-            functCaller(sayHello);
-            functCaller(sayBye);
-            
 
             return 0;
       }

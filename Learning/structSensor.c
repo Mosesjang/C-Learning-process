@@ -32,3 +32,6 @@ int main(){
 
       return 0;
 }
+
+
+// try using scanf directly with the struct memebers.
