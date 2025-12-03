@@ -1,19 +1,32 @@
 #include <stdio.h>
-      float mult(float a, float b){return a * b;}
+      typedef enum {
+            ON,
+            OFF
+      }Value;
+      typedef union {
+            int brightness;
+            int blinkRate;
+      }ledValue;
 
-      float callbackfunct(float(*functPtr)(float, float), float x, float y){
-            return functPtr(x,y);
+      typedef struct {
+            int number;
+            char name[50];
+      }myStruct;
 
-      }
+       int main(){
 
-      int main(){
+            Value state = ON;
+            if (state == ON){
+                  printf("it is ON\n");
+            }
 
-            float result;
+            ledValue hey;
+            hey.brightness =75;
+            printf("%d\n",hey.brightness);
 
-            result = callbackfunct(mult, 5.0, 4.0);
-            
-            printf("%.2f", result);
+            myStruct house = {10};
+            printf("%d", house.number);
 
 
             return 0;
-      }
+       }
