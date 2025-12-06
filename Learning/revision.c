@@ -56,12 +56,12 @@
             scanf("%d", &sPtr -> brightness);
             printf("New Brightness: %d%%", sPtr -> brightness);
 
-            printf("Enter x -> menu: ");
+            printf("\nEnter x -> menu: ");
             scanf(" %c", &continueInput);
       }
 
       int angleControl(Led *sPtr){
-            
+            printf("\nAngle is at %d degree", sPtr ->angle);
             printf("\nChange Angle: ");
             scanf("%d", &sPtr -> angle);
             printf("New Angle: %d degree\n", sPtr -> angle);
