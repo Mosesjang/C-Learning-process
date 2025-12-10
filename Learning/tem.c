@@ -1,6 +1,15 @@
 #include <stdio.h>
- int main(){
-      unsigned int num = 12345678910;
-      printf("%d", num);
-      return 0;
- }
+#include <stdlib.h>
+     int main(){
+
+          int* Ptr = calloc(4,sizeof(Ptr));
+          *Ptr = 67;
+          Ptr[1] = 69;
+
+               printf("\nYour number is: %d,", *Ptr);
+               printf("\nYour number is: %d,", Ptr[1]);
+
+          free(Ptr);
+
+          return 0;
+     }
