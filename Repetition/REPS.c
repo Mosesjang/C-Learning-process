@@ -24,18 +24,20 @@ int main(){
       printf("\nEnter a name to search: ");
       scanf("%s", search);
 
-      int found;
+      int found = 0;
       for(int x = 0; x < 5; x++){
           int result = strcmp(name[x], search);
           
           if(result == 0){
             printf("Result: Found at position %d", x + 1);
             found = 1;
+            break;
           }
-            else if(found != 1 && x == 5){
-            printf("Name not found");
-      }
             
+      }
+
+           if(found == 0){
+            printf("\nResult:Name not found\n");
       }
 
       return 0;
