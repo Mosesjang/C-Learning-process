@@ -37,17 +37,26 @@ int namePrintFunc(){
             printf("%d. %s\n", x + 1, userInput[x]);
       }
       
+      return 0;
 }
 
 int searchName(){
       char name[50];
+      int found = 0;
       printf("Search Name: ");
       scanf("%s", name);
 
       for(int x = 0; x < 5; x++){
            int result = strcmp(name, userInput[x]);
-           
+           if(result == 0){
+            printf("%s is located at %d\n", name, x);
+            found = 1;
+            break;
+           }
+
       }
-      
+      if(found == 0){
+            printf("Not found\n");
+      }
 
 }
