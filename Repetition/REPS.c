@@ -1,35 +1,37 @@
 #include <stdio.h>
 #include <string.h>
 
-int nameInputFunc();
-int namePrintFunc();
-int searchName();
+int nameInputFunc(char userInput[5][50]);
+int namePrintFunc(char userInput[5][50]);
+int searchName(char userInput[5][50]);
 
-char userInput[5][50];
+
 
 int main(){
 
-      nameInputFunc();
-      namePrintFunc();
-      searchName();
+      char userInput[5][50];
+
+      nameInputFunc(userInput);
+      namePrintFunc(userInput);
+      searchName(userInput);
 
       return 0;
 }
 
-int nameInputFunc(){
+int nameInputFunc(char name[5][50]){
 
       printf("\n===== Name List Manager =====\n");
       printf("Enter 5 names \n");
 
       for(int x = 0; x < 5; x++){
             printf(" Enter name %d: ", x + 1);
-            scanf("%s", userInput[x]);
+            scanf("%s", name[x]);
       }
 
       return 0;
 }
 
-int namePrintFunc(){
+int namePrintFunc(char userInput[5][50]){
 
       printf("\n----- Stored Names -----\n");
 
@@ -40,7 +42,7 @@ int namePrintFunc(){
       return 0;
 }
 
-int searchName(){
+int searchName(char userInput[5][50]){
       char name[50];
       int found = 0;
       printf("Search Name: ");
@@ -49,7 +51,7 @@ int searchName(){
       for(int x = 0; x < 5; x++){
            int result = strcmp(name, userInput[x]);
            if(result == 0){
-            printf("%s is located at %d\n", name, x);
+            printf("%s is located at %d\n", name, x + 1);
             found = 1;
             break;
            }
