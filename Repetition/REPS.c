@@ -30,7 +30,6 @@ void nameInputFunc(char (*ptr)[50], int count){
 
       }
 
-      return 0;
 }
 
 void printName(char (*ptr)[50], int count){
