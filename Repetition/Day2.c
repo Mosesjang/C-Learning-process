@@ -8,7 +8,7 @@ struct Classroom{
       char name[50];
 };
 
-int getInput(struct Classroom students[], int count);
+void getInput(struct Classroom students[], int count);
 void printInputs(struct Classroom students[], int count);
 
 
@@ -27,10 +27,11 @@ int main(){
       return 0;
 }
 
-int getInput(struct Classroom students[], int count){
+void getInput(struct Classroom students[], int count){
       printf("\n===== Student Manager =====\n");
       
       for(int x = 0; x < count; x++){
+      students[x].id = x + 1;
       printf("Enter student %d name: ", x + 1);
       scanf("%s", students[x].name);
       printf("Enter student %d age: ", x + 1);
@@ -44,7 +45,7 @@ void printInputs(struct Classroom students[], int count){
       printf("\n----- student info -----\n");
       
       for(int x = 0; x < count; x++){
-            students[x].id = x + 1;
+            
             printf("ID: %d | Name: %s | Age: %d\n", 
             students[x].id,
             students[x].name,
