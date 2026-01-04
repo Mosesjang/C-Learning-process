@@ -6,42 +6,31 @@ typedef struct{
       char name[50];
 }Classroom;
 
-void getInput(Classroom students[], int count);
-void printNames(Classroom student[], int count);
 
 int main(){
       int choice;
-      printf("\nHow many student? ");
-      scanf("%d", &choice);
+      printf("How many students? ");
+      scanf("%d", choice);
 
       Classroom students[choice];
-
-      getInput(students, choice);
-      printNames(students, choice);
 
 
       return 0;
 }
 
-void getInput(Classroom students[], int count){
+void getName(Classroom *s, int count){
       printf("\n===== Student Manager =====\n");
-      
       for(int x = 0; x < count; x++){
-            students[x].id = x+1;
-            printf("\nEnter student %d name: ", x +1);
-            scanf("%s", students[x].name);
+            s->id = x+1;
+            printf("\nEnter student %d name: ", x+1);
+            scanf("%s", s->name);
             printf("Enter student %d age: ", x+1);
-            scanf("%d", &students[x].age);
+            scanf("%d", s->age);
       }
-
 }
- 
-void printNames(Classroom student[], int count){
+
+void printName(Classroom *s, int count){
       printf("\n----- Student Info -----\n");
-      for(int x = 0; x < count; x++){
-            printf("ID: %d | Name: %s | Age: %d\n", 
-            student[x].id,
-            student[x].name,
-            student[x].age);
-      }
+      printf("ID: %d | Name: %s | Age: %d",
+            s->id, s->name, s->age);
 }
