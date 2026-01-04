@@ -6,13 +6,20 @@ typedef struct{
       char name[50];
 }Classroom;
 
+void getName(Classroom *s, int count);
+void printName(Classroom *s, int count);
+
 
 int main(){
       int choice;
       printf("How many students? ");
-      scanf("%d", choice);
+      scanf("%d", &choice);
 
       Classroom students[choice];
+
+      //run fuctions
+      getName(students, choice);
+      printName(students, choice);
 
 
       return 0;
@@ -23,14 +30,17 @@ void getName(Classroom *s, int count){
       for(int x = 0; x < count; x++){
             s->id = x+1;
             printf("\nEnter student %d name: ", x+1);
-            scanf("%s", s->name);
+            scanf("%s", s[x].name);
             printf("Enter student %d age: ", x+1);
-            scanf("%d", s->age);
+            scanf("%d", &s[x].age);
       }
 }
 
 void printName(Classroom *s, int count){
       printf("\n----- Student Info -----\n");
-      printf("ID: %d | Name: %s | Age: %d",
-            s->id, s->name, s->age);
+      for(int x = 0; x < count; x++){
+             printf("ID: %d | Name: %s | Age: %d\n",
+            s[x].id, s[x].name, s[x].age);
+      }
+
 }
