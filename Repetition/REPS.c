@@ -20,7 +20,6 @@ int main(){
       getName(type, choice);
       printName(type, choice);
 
-
       return 0;
 }
 
