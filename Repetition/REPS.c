@@ -27,9 +27,9 @@ void getName(Sensor *t, int count){
       printf("\n===== Sensor Manager =====\n");
       for(int x = 0; x < count; x++){
             t[x].id = x+1;
-            printf("\nEnter Sensor %d type: ", x+1);
+            printf("\nEnter Sensors %d type: ", x+1);
             scanf("%s", t[x].type);
-            printf("Enter Sensor %d Value: ", x+1);
+            printf("Enter Sensors %d Value: ", x+1);
             scanf("%f", &t[x].value);
 
       }
