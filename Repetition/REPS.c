@@ -25,19 +25,19 @@ int main(){
 
 void getName(Classroom *s, int count){
       printf("\n===== Student Manager =====\n");
-      for(int x = 0; x < count;){
+      for(int x = 0; x < count; x++){
             s[x].id = x+1;
              printf("Enter student %d name: ", x + 1);
              scanf("%s", s[x].name);
              printf("Enter student %d age: ", x + 1);
-             scanf("%s", s[x].age);
+             scanf("%d", &s[x].age);
       }
 
 }
 void printName(Classroom *s, int count){
       printf("\n----- Student Info -----\n");
       for(int x = 0; x < count; x++){
-            printf("ID: %d | Name: %s | Age: %d", 
+            printf("ID: %d | Name: %s | Age: %d\n", 
                   s[x].id, s[x].name, s[x].age);
       }
 }
