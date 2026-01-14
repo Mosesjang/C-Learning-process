@@ -7,6 +7,7 @@ int main(){
       printf("%d\n", x[0]);
       for(int i = 0; i < 4; i++){
             printf("\n%d", *(x + i));
+            printf("done");
       }
 
       return 0;
