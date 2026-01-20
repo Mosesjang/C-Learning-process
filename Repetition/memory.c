@@ -1,67 +1,51 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-void getName(char (*name)[50], int count);
-void printName(char (*name)[50], int count);
-int searchName(char (*name)[50], int count);
+typedef struct{
+      int id;
+      float Value;
+      char name[50];
+}Sensors;
+
+void getSensorInfo(Sensors *s, int amount);
+void printInfo(Sensors *s, int amount);
 
 int main(){
-      int count;
+      int amount = 0;
+      printf("How many Sensors? ");
+      scanf("%d", &amount);
 
-      printf("Enter amount of names: ");
-      scanf("%d", &count);
+      Sensors *s = malloc(amount * sizeof(Sensors));
+      if(!s) return 1;
 
-      char(*name)[50] = malloc(count * sizeof(*name));
-      if(name == NULL){
-            printf("memory allocation failed\n");
-            return 1;
-      }
-      
-      getName(name, count);
-      printName(name, count);
-      int pos = searchName(name, count);
+      getSensorInfo(s, amount);
+      printInfo(s, amount);
 
-      if(pos != -1){
-            printf("found at %d", pos);
-      }
-      else{
-            printf("name does not exist");
-      }
+      free(s);
 
-      free(name);
       return 0;
 }
 
-void getName(char (*name)[50], int count){
-      printf("Enter Names:\n");
-      for(int x = 0; x < count; x++){
-            printf("Name %d:", x + 1);
-            scanf("%s", name[x]);
-      }
+void getSensorInfo(Sensors *s, int amount){
+      printf("\n===== Sensors Info =====\n");
+      for(int x = 0; x < amount; x++){
+            printf("Enter Sensor %d Info:\n", x + 1);
+            printf("Name: ");
+            scanf("%s", s[x].name);
+            printf("ID: ");
+            scanf("%d", &s[x].id);
+            printf("Value: ");
+            scanf("%f", &s[x].Value);
 
-}
-
-void printName(char(*name)[50], int count){
-      printf("\n===== List of names =====\n");
-      for(int x = 0; x < count; x++){
-            printf("Name %d: %s\n", x + 1, name[x]);
       }
 }
 
-int searchName(char (*name)[50], int count){
-      char choice[50];
-      printf("\nSearch Name: ");
-      scanf("%s", choice);
-
-      for(int x = 0; x < count; x++){
-            int result = strcmp(name [x], choice);
-            if(result == 0){
-                  return x + 1;
-            }
+void printInfo(Sensors *s, int amount){
+      printf("----- Display Sensor Data -----\n");
+      for(int x = 0; x < amount; x++){
+            printf("%d. ID: %d | Name: %s | Value: %.2f\n",
+                  x +1, s[x].id, s[x].name, s[x].Value);
       }
-
-      return -1;
 }
 
 // things learned: 1. allocate 2d array with pointer char (*ptr)[fix number] = malloc(count * sizeof(*name));
