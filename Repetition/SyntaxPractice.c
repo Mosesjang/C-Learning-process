@@ -55,7 +55,7 @@ void getSenInput(Sensor *s, int amount, int plus){
 void printSenData(Sensor *s, int count){
       printf("\n----- Display Sensors -----\n");
       for(int x = 0; x < count; x++){
-            printf("%d. ID: %d | Name: %s | Value: %.2f\n",
+            printf("%d. ID: %d | Name: %s | value: %.2f\n",
                   x + 1, s[x].id, s[x].name, s[x].Value);
       }
 }
