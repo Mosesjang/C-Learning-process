@@ -11,7 +11,7 @@ int getSenInfo(Sensor *s, int start, int count);
 void printInfo(Sensor *s, int count);
 
 int main(){
-      int start = 0;
+      int oldCount = 0;
       int choice;
       printf("How many Sensor? ");
       scanf("%d", &choice);
@@ -19,7 +19,7 @@ int main(){
       Sensor *s = malloc(choice * sizeof(Sensor));
 
       
-     start = getSenInfo(s, start, choice);
+      getSenInfo(s, oldCount, choice);
       printInfo(s, choice);
 
       // Add more 
@@ -27,6 +27,7 @@ int main(){
       printf("How much more? ");
       scanf("%d", &more);
 
+      oldCount = choice;
       choice += more;
 
       Sensor *m = realloc(s, choice * sizeof(Sensor));
@@ -36,9 +37,9 @@ int main(){
         }
       s = m;
 
-      printf("%d", start);
+      printf("%d", oldCount);
 
-      getSenInfo(s, start, choice);
+      getSenInfo(s, oldCount, choice);
       printInfo(s, choice);
 
       free(s);
@@ -56,9 +57,6 @@ int getSenInfo(Sensor *s, int start, int count){
             scanf("%d", &s[x].id);
             printf("Value: ");
             scanf("%f", &s[x].value);
-
-            x = count;
-            return x;
       }
       
 }
