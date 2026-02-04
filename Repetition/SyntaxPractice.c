@@ -7,25 +7,48 @@ typedef struct{
       char name[50];
 }Sensor;
 
-void getSenInfo(Sensor *s, int count);
+int getSenInfo(Sensor *s, int start, int count);
 void printInfo(Sensor *s, int count);
 
 int main(){
+      int start = 0;
       int choice;
       printf("How many Sensor? ");
       scanf("%d", &choice);
 
       Sensor *s = malloc(choice * sizeof(Sensor));
 
-      getSenInfo(s, choice);
+      
+     start = getSenInfo(s, start, choice);
       printInfo(s, choice);
+
+      // Add more 
+      int more;
+      printf("How much more? ");
+      scanf("%d", &more);
+
+      choice += more;
+
+      Sensor *m = realloc(s, choice * sizeof(Sensor));
+       if (!m) {
+            free(s);
+            return 1;
+        }
+      s = m;
+
+      printf("%d", start);
+
+      getSenInfo(s, start, choice);
+      printInfo(s, choice);
+
+      free(s);
 
       return 0;
 }
 
-void getSenInfo(Sensor *s, int count){
+int getSenInfo(Sensor *s, int start, int count){
       printf("\n===== Sensor Manager =====\n");
-      for(int x = 0; x < count; x++){
+      for(int x = start; x < count; x++){
             printf("Enter Sensor %d\n", x+1);
             printf("Name: ");
             scanf("%s", s[x].name);
@@ -33,6 +56,9 @@ void getSenInfo(Sensor *s, int count){
             scanf("%d", &s[x].id);
             printf("Value: ");
             scanf("%f", &s[x].value);
+
+            x = count;
+            return x;
       }
       
 }
