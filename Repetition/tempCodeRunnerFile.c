@@ -24,10 +24,10 @@ int main(){
       // Add more
 
       int more;
-      printf("How much more? ");
+      printf("\nHow much more? ");
       scanf("%d", &more);
 
-      choice = oldCount;
+      oldCount = choice;
       choice += more;
 
       // Reallocate
@@ -68,7 +68,7 @@ void pSenInfo(Sensor *s, int count){
       printf("\n----- Sensor Info -----\n");
 
       for(int x = 0; x < count; x++){
-            printf(" - Sensor %d: Name: %s | ID: %d | Value: %.2f ", 
+            printf(" - Sensor %d: Name: %s | ID: %d | Value: %.2f\n", 
                   x+1, s[x].name, s[x].id, s[x].value);
       }
 }
