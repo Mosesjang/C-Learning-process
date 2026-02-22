@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 
-
 int main(){
 
       // Create File
@@ -16,9 +15,10 @@ int main(){
 
       // Read file 
       char myString[100];
-      fptr = fopen("MyName.txt", "r");  
+      fptr = fopen("MyName.txt", "r"); 
       
-
+      fget(myString, 100, fptr);
+      
 
       return 0;
 }
