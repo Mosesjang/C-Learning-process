@@ -21,7 +21,7 @@ int main(){
        // get student input
        getStudentInpt(s, studentAmt);
        
-       // Creat a file
+       // Create a file
        FILE *fptr;
        fptr = fopen("MyName.txt", "w");
        if(!fptr){
@@ -35,7 +35,7 @@ int main(){
        // close file
        fclose(fptr);
 
-       // Write student data in file
+       // output student data in terminal
        char myString[100];
        fptr = fopen("MyName.txt", "r");
        if(!fptr){
@@ -47,11 +47,6 @@ int main(){
        while(fgets(myString, 100, fptr)){
             printf("%s", myString);
        }
-
-       
-
-
-
 
       return 0;
 }
