@@ -1,10 +1,9 @@
 #include <stdio.h>
 
 int main(){
-
-      int a = 1, b = 2;
-      int c = a | b;
-      printf("bit 1 turn on: %d", c);
+      unsigned char reg = 0;
+      reg|= (1 << 1);
+      printf("bit 1 turn on: %d", reg);
 
       return 0;
 }
