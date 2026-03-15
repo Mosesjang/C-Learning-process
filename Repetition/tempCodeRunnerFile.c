@@ -22,6 +22,5 @@ int main(){
       control &= ~LED_ENABLE;
       printf("%d\n", control);
       
-
       return 0;
 }
