@@ -3,9 +3,6 @@
 #include "bitops.h"
 #include "led.h"
 
-#define LED_ENABLE (1 << 0)
-#define MOTOR_ENABLE (1 << 1)
-#define SENSOR_ENABLE (1 << 2)
 
 int main(){
 
