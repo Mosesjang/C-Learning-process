@@ -1,3 +1,0 @@
-Name: Moses
-Age: 21
-Score: 67.50

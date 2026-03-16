@@ -1,4 +1,0 @@
-Name: Moses 
-Age: 21
-GPA: 4.50
-
