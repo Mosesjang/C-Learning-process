@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include "bitops.h"
+#include "led.h"
 
 #define LED_ENABLE (1 << 0)
 #define MOTOR_ENABLE (1 << 1)
@@ -22,6 +23,10 @@ int main(){
 
       //Checking led
       isEnable(&control, LED_ENABLE);
+
+      // led
+      ledOn();
+      ledOff();
 
       
       return 0;
