@@ -25,6 +25,17 @@ int main(){
       ledOn();
       ledOff();
 
+      // Tasks
+
+      control = 0;
+      SET_BIT(control, 0);
+      SET_BIT(control, 2);
+
+      printf("\n%d\n", control);
+
+      CLEAR_BIT(control, 0);
+      printf("\n%d\n", control);
+
       
       return 0;
 }
